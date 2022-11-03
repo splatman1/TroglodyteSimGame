@@ -11,3 +11,4 @@ class Room:
         self.east = east_room
         self.south = south_room
         self.west = west_room
+

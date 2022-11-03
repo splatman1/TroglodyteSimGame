@@ -15,11 +15,17 @@ dragons_room = Room("Dragon's_Room")
 skeletons_room = Room("Skeleton's Room")
 frodo_room = Room("Frodo's Room")
 """Characters"""
-wilson_volleyball = Person()
-floyd_collins = Person()
-gollum = Person()
-troglodyte = Troglodyte()
-dragon = Dragon()
+wilson_volleyball = Person(wilsons_room, "Hi young Troglodyte, what are you doing here?....\n"
+                                         "Never mind, I dont really care.\n"
+                                         " Ever since I lost my best friend to sea life has been miserable.\n "
+                                         "I hope his marriage is more stable than his raft. \n"
+                                         "anyway here is a fishing rod. I don't have arms so I sort of \n"
+                                         "stare at it wishing for the sweet release of death.")
+
+floyd_collins = Person(floyds_room)
+gollum = Person(gollums_room)
+troglodyte = Troglodyte(starting_room)
+dragon = Dragon(dragons_room)
 """Items"""
 the_one_ring = Items("The One Ring", gollum)
 knife = Items("Knife", skeletons_room)
@@ -43,5 +49,8 @@ lake_room.find_directions(None, None, floyds_room)
 dragons_room.find_directions(outside, None, wilsons_room)
 frodo_room.find_directions(None, None, gollums_room, None)
 """Game"""
-
+troglodyte.print_slow(troglodyte.starting_message)
+print("\n")
+troglodyte.print_slow("You find yourself in a cave. You have no idea who you are\n"
+                      "and no idea how you got here.")
 
