@@ -3,17 +3,24 @@ from room import Room
 from items import Items
 from troglodyte import Troglodyte
 from dragon import Dragon
-
+"""Characters"""
 wilson_volleyball = Person()
 floyd_collins = Person()
 gollum = Person()
-
+troglodyte = Troglodyte()
+dragon = Dragon()
+""""""
 the_one_ring = Items("The One Ring")
 knife = Items("Knife")
-
-
-
-
+fish = Items("Fish")
+fishing_rod = Items("Fishing Rod")
+note = Items("note")
+key = Items("Key")
+id = Items("ID")
+shopping_list = Items("Shopping List")
+floyds_note = Items("Floyd's Note")
+skeleton = Items("Skeleton")
+map = Items("Map")
 
 lake_room = Room("Lake Room")
 floyds_room = Room("Floyd's Room")
