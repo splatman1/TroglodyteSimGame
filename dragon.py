@@ -3,14 +3,14 @@ class Dragon:
         self.quote = "Dragon go brrr"
         self.player_viewable = player_viewable
 
-    def search_for_player(self):
+    def search_for_player(self, player):
         if self.player_viewable:
-            return self.quote and self.kill_player()
+            return self.quote and self.kill_player(player)
         if not self.player_viewable:
             return None
 
     def kill_player(self, player):
-        player.is_dead = True
+        player.is_alive = True
 
 
 

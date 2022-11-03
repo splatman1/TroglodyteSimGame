@@ -4,13 +4,13 @@ from items import Items
 from troglodyte import Troglodyte
 from dragon import Dragon
 """Rooms"""
+starting_room = Room("Starting_Room")
 lake_room = Room("Lake Room")
 floyds_room = Room("Floyd's Room")
 wilsons_room = Room("Wilson's Room")
 gollums_room = Room("Gollum's Room")
-Outside = Room("Outside")
+outside = Room("Outside")
 weapons_room = Room("Weapon's Room")
-starting_room = Room("Starting_Room")
 dragons_room = Room("Dragon's_Room")
 skeletons_room = Room("Skeleton's Room")
 frodo_room = Room("Frodo's Room")
@@ -32,6 +32,16 @@ shopping_list = Items("Shopping List", starting_room)
 floyds_note = Items("Floyd's Note", floyds_room)
 skeleton = Items("Skeleton", skeletons_room)
 map = Items("Map", wilsons_room)
+"""Setup locations"""
+starting_room.find_directions(wilsons_room)
+skeletons_room.find_directions(floyds_room)
+weapons_room.find_directions(gollums_room)
+floyds_room.find_directions(lake_room, wilsons_room, skeletons_room)
+wilsons_room.find_directions(dragons_room, gollums_room, starting_room, floyds_room)
+gollums_room.find_directions(frodo_room, None, weapons_room, wilsons_room)
+lake_room.find_directions(None, None, floyds_room)
+dragons_room.find_directions(outside, None, wilsons_room)
+frodo_room.find_directions(None, None, gollums_room, None)
 """Game"""
-
+troglodyte.died()
 

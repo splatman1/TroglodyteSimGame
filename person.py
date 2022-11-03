@@ -1,10 +1,9 @@
 class Person:
-    def __init__(self):
-        pass
+    def __init__(self, location=None):
+        self.is_dead = False
+        self.location = location
+        while True:
+            if self.is_dead:
+                print("Dead")
 
-    def talk_to_person(self, question, name):
-        message = f"A Wild {name} Appeared!\n" \
-                  f"Would you like to talk to them(yes/no)"
-        if input(message) == "y":
-            input(question)
 
