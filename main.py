@@ -43,5 +43,5 @@ lake_room.find_directions(None, None, floyds_room)
 dragons_room.find_directions(outside, None, wilsons_room)
 frodo_room.find_directions(None, None, gollums_room, None)
 """Game"""
-troglodyte.died()
+
 
