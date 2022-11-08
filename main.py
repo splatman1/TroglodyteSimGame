@@ -53,4 +53,4 @@ troglodyte.print_slow(troglodyte.starting_message)
 print("\n")
 troglodyte.print_slow("You find yourself in a cave. You have no idea who you are\n"
                       "and no idea how you got here.")
-
+starting_room

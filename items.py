@@ -19,4 +19,6 @@ class Items:
         if not self.is_readable:
             print("object can't be interpreted")
 
-    def detect_items(self, t):
+    def detect_items(self, troglodyte_location):
+        if troglodyte_location == self.location:
+            print(self.item)

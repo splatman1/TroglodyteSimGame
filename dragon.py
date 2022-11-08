@@ -10,7 +10,7 @@ class Dragon:
             return None
 
     def kill_player(self, player):
-        player.is_alive = True
+        player.is_alive = False
 
 
 
