@@ -15,30 +15,24 @@ dragons_room = Room("Dragon's_Room")
 skeletons_room = Room("Skeleton's Room")
 frodo_room = Room("Frodo's Room")
 """Characters"""
-wilson_volleyball = Person(wilsons_room, "Hi young Troglodyte, what are you doing here?....\n"
-                                         "Never mind, I dont really care.\n"
-                                         " Ever since I lost my best friend to sea life has been miserable.\n "
-                                         "I hope his marriage is more stable than his raft. \n"
-                                         "anyway here is a fishing rod. I don't have arms so I sort of \n"
-                                         "stare at it wishing for the sweet release of death.")
-
-floyd_collins = Person(floyds_room)
-gollum = Person(gollums_room)
-troglodyte = Troglodyte(starting_room)
-dragon = Dragon(dragons_room)
+wilson_volleyball = Person
+floyd_collins = Person
+gollum = Person
+troglodyte = Troglodyte
+dragon = Dragon
 """Items"""
-the_one_ring = Items("The One Ring", gollum)
-knife = Items("Knife", skeletons_room)
-fish = Items("Fish", lake_room)
-fishing_rod = Items("Fishing Rod", wilsons_room)
-note = Items("note", frodo_room)
-key = Items("Key", starting_room)
-id = Items("ID", starting_room)
-shopping_list = Items("Shopping List", starting_room)
-floyds_note = Items("Floyd's Note", floyds_room)
-skeleton = Items("Skeleton", skeletons_room)
-map = Items("Map", wilsons_room)
-"""Setup locations"""
+the_one_ring = Items("The One Ring")
+knife = Items("Knife")
+fish = Items("Fish")
+fishing_rod = Items("Fishing Rod")
+note = Items("note")
+key = Items("Key")
+id = Items("ID")
+shopping_list = Items("Shopping List")
+floyds_note = Items("Floyd's Note")
+skeleton = Items("Skeleton")
+map = Items("Map")
+"""Setup directions"""
 starting_room.find_directions(wilsons_room)
 skeletons_room.find_directions(floyds_room)
 weapons_room.find_directions(gollums_room)
@@ -48,9 +42,23 @@ gollums_room.find_directions(frodo_room, None, weapons_room, wilsons_room)
 lake_room.find_directions(None, None, floyds_room)
 dragons_room.find_directions(outside, None, wilsons_room)
 frodo_room.find_directions(None, None, gollums_room, None)
-"""Game"""
-troglodyte.print_slow(troglodyte.starting_message)
-print("\n")
-troglodyte.print_slow("You find yourself in a cave. You have no idea who you are\n"
-                      "and no idea how you got here.")
-starting_room
+"""Setup Character Locations"""
+starting_room.characters = troglodyte
+wilsons_room.characters = wilson_volleyball
+gollums_room.characters = gollum
+floyds_room.characters = floyd_collins
+dragons_room.characters = dragon
+"""Setup Item Locations"""
+starting_room.item1 = key
+starting_room.item2 = id
+starting_room.item3 = shopping_list
+skeletons_room.item1 = skeleton
+weapons_room.item1 = knife
+gollum.item = the_one_ring
+lake_room.item1 = fish
+dragons_room.item1 = note
+
+
+
+
+""""""
