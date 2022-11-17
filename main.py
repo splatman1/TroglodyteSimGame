@@ -46,7 +46,7 @@ lake_room.find_directions(None, None, floyds_room)
 dragons_room.find_directions(outside, None, wilsons_room)
 frodo_room.find_directions(None, None, gollums_room, None)
 """Setup Character Locations"""
-starting_room.characters = troglodyte
+starting_room.troglodyte_character = troglodyte
 wilsons_room.characters = wilson_volleyball
 gollums_room.characters = gollum
 floyds_room.characters = floyd_collins
@@ -57,10 +57,12 @@ starting_room.item2 = id
 starting_room.item3 = shopping_list
 skeletons_room.item1 = skeleton
 weapons_room.item1 = knife
-gollum.item = the_one_ring
+gollum.item1 = the_one_ring
 lake_room.item1 = fish
 frodo_room.item1 = note
 wilson_volleyball.item = fishing_rod
 gollum.item = the_one_ring
 """Game Start"""
-troglodyte.print_slow(troglodyte.print_slow(troglodyte.starting_message))
+starting_room.troglodyte_character.print_slow(troglodyte.starting_message)
+
+
