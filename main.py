@@ -21,7 +21,7 @@ wilson_volleyball = Person("Wilson the volleyball")
 floyd_collins = Person("floyd collins")
 gollum = Person("gollum")
 troglodyte = Troglodyte()
-dragon = Dragon()
+dragon = Dragon("dragon")
 """Items"""
 the_one_ring = Items("The One Ring")
 knife = Items("Knife")

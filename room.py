@@ -1,6 +1,6 @@
 class Room:
     def __init__(self, room_name, north=None, east=None, south=None, west=None, characters = None,
-                 item1=None, item2=None, item3=None, explored = False, troglodyte_character=None):
+                 item1=None, item2=None, item3=None, explored=False, troglodyte_character=None):
         self.explored = explored
         self.room_name = room_name
         self.item1 = item1
@@ -66,6 +66,9 @@ class Room:
             print(f"A wild {str(self.characters.name)} appeared")
 
         print(f"I see a {item1}, {item2}, {item3} and I'm in a place called {self.room_name} weird name...")
+
+        if self.characters.name == "dragon":
+            self.characters.search_for_player(self.troglodyte_character)
         self.explored = True
 
 

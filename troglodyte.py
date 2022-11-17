@@ -20,7 +20,7 @@ class Troglodyte:
 
     def character_options(self):
         self.print_slow(self.choices)
-        player_entry = input("")
+        player_entry = input("What should I do? ")
         if player_entry.isnumeric():
             player_entry = int(player_entry)
             if player_entry < 6 and player_entry > 0:
