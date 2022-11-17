@@ -3,6 +3,7 @@ from room import Room
 from items import Items
 from troglodyte import Troglodyte
 from dragon import Dragon
+from backpack import BackPack
 """Rooms"""
 starting_room = Room("Starting_Room")
 lake_room = Room("Lake Room")
@@ -18,7 +19,7 @@ frodo_room = Room("Frodo's Room")
 wilson_volleyball = Person
 floyd_collins = Person
 gollum = Person
-troglodyte = Troglodyte
+troglodyte = Troglodyte()
 dragon = Dragon
 """Items"""
 the_one_ring = Items("The One Ring")
@@ -32,6 +33,8 @@ shopping_list = Items("Shopping List")
 floyds_note = Items("Floyd's Note")
 skeleton = Items("Skeleton")
 map = Items("Map")
+"""Backpack"""
+backpack = BackPack(None)
 """Setup directions"""
 starting_room.find_directions(wilsons_room)
 skeletons_room.find_directions(floyds_room)
@@ -56,9 +59,8 @@ skeletons_room.item1 = skeleton
 weapons_room.item1 = knife
 gollum.item = the_one_ring
 lake_room.item1 = fish
-dragons_room.item1 = note
-
-
-
-
-""""""
+frodo_room.item1 = note
+wilson_volleyball.item = fishing_rod
+gollum.item = the_one_ring
+"""Game Start"""
+troglodyte.print_slow(troglodyte.print_slow(troglodyte.starting_message))

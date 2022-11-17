@@ -4,15 +4,9 @@ import time
 
 
 class Troglodyte:
-    def __init__(self, location):
-        self.backpack = []
+    def __init__(self):
         self.is_alive = True
-        self.location = location
         self.starting_message = "what am I doing here?"
-
-
-    def insert_into_bacpack(self, item):
-        self.backpack.append(item.item)
 
     def died(self):
         self.is_alive = False
