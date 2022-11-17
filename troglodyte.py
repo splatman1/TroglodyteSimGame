@@ -10,17 +10,26 @@ class Troglodyte:
                                 "and waking up here.\n I need to hurry up and get out of here before someone has a " \
                                 "cringe opinion on sonic 2006"
 
-        self.dialogue_options = "Would you like to:\n " \
+        self.choices = "Would you like to:\n " \
                                 "1. Search Room\n" \
                                 "2. Talk to character\n" \
                                 "3. Look in backpack\n" \
-                                "4. Collect Items\n"
+                                "4. Collect Items\n" \
+                                "5. Move Rooms\n"
+
 
     def character_options(self):
-        self.print_slow(self.dialogue_options)
+        self.print_slow(self.choices)
         player_entry = input("")
         if player_entry.isnumeric():
-            print(player_entry)
+            player_entry = int(player_entry)
+            if player_entry < 6 and player_entry > 0:
+                return player_entry
+
+
+
+
+
 
     def died(self):
         self.is_alive = False

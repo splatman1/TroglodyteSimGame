@@ -34,33 +34,39 @@ class Room:
             west = " West"
         direction_options = (f"I can move{north} {east} {south} {west}")
         print(direction_options)
-        while True:
-            choose_direction = input("Where should I go: ").lower()
-            if choose_direction not in direction_options.lower():
-                print("I can't enter a room without a door")
+        choose_direction = input("Where should I go: ").lower()
+        if choose_direction not in direction_options.lower():
+            print("I can't enter a room without a door")
+        if choose_direction in direction_options.lower():
+            if choose_direction == north.lower():
+                self.north.troglodyte_character = self.troglodyte_character
+                return self.north
+            if choose_direction == east.lower():
+                self.east.troglodyte_character = self.troglodyte_character
+            if choose_direction == south.lower():
+                self.south.troglodyte_character = self.troglodyte_character
+            if choose_direction == west.lower():
+                self.west.troglodyte_character = self.troglodyte_character
+            self.troglodyte_character = None
+            return self.north
 
-            if choose_direction in direction_options.lower():
-                if choose_direction == north.lower():
-                    self.north.troglodyte_character = self.troglodyte_character
-                if choose_direction == east.lower():
-                    self.east.troglodyte_character = self.troglodyte_character
-                if choose_direction == south.lower():
-                    self.south.troglodyte_character = self.troglodyte_character
-                if choose_direction == west.lower():
-                    self.west.troglodyte_character = self.troglodyte_character
-                self.troglodyte_character = None
 
+    def search_room(self):
+        item1 = None
+        item2 = None
+        item3 = None
 
-
-    def show_objects(self):
         if self.item1 != None:
             item1 = self.item1.item
-            if self.item2 != None:
-                item2 = self.item2.item
-                if self.item3 != None:
-                    item3 = self.item3.item
-                    print(f"I see a {item1}, {item2}, {item3}")
-                    self.explored = True
+        if self.item2 != None:
+            item2 = self.item2.item
+        if self.item3 != None:
+            item3 = self.item3.item
+        if self.characters != None:
+            print(f"A wild {str(self.characters.name)} appeared")
+
+        print(f"I see a {item1}, {item2}, {item3} and I'm in a place called {self.room_name} weird name...")
+        self.explored = True
 
 
 

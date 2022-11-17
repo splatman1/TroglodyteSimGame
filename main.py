@@ -1,3 +1,4 @@
+import time
 from person import Person
 from room import Room
 from items import Items
@@ -16,11 +17,11 @@ dragons_room = Room("Dragon's_Room")
 skeletons_room = Room("Skeleton's Room")
 frodo_room = Room("Frodo's Room")
 """Characters"""
-wilson_volleyball = Person
-floyd_collins = Person
-gollum = Person
+wilson_volleyball = Person("Wilson the volleyball")
+floyd_collins = Person("floyd collins")
+gollum = Person("gollum")
 troglodyte = Troglodyte()
-dragon = Dragon
+dragon = Dragon()
 """Items"""
 the_one_ring = Items("The One Ring")
 knife = Items("Knife")
@@ -63,9 +64,19 @@ frodo_room.item1 = note
 wilson_volleyball.item = fishing_rod
 gollum.item = the_one_ring
 """Game options"""
-
-
-"""Game Start"""
-starting_room.troglodyte_character.print_slow(troglodyte.starting_message)
-
+troglodyte_location = starting_room
+troglodyte.print_slow(troglodyte.starting_message)
+"""Game setup"""
+while True:
+    character_options = troglodyte.character_options()
+    if character_options == 1:
+        troglodyte_location.search_room()
+    if character_options == 2:
+        pass
+    if character_options == 3:
+        pass
+    if character_options == 4:
+        pass
+    if character_options == 5:
+        troglodyte_location = troglodyte_location.move_character()
 
