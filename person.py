@@ -1,7 +1,5 @@
 class Person:
-    def __init__(self, name, location=None, message=None, item=None):
-        self.is_dead = False
-        self.location = location
+    def __init__(self, name, message, item=None):
         self.character_message = message
         self.item = item
         self.name = name

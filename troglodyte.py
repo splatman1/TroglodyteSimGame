@@ -16,6 +16,9 @@ class Troglodyte:
                                 "3. Look in backpack\n" \
                                 "4. Collect Items\n" \
                                 "5. Move Rooms\n"
+    def ask_character_question(self, character):
+        print(f"Hello There {character}")
+
 
 
     def character_options(self):
@@ -25,11 +28,6 @@ class Troglodyte:
             player_entry = int(player_entry)
             if player_entry < 6 and player_entry > 0:
                 return player_entry
-
-
-
-
-
 
     def died(self):
         self.is_alive = False

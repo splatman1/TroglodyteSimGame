@@ -17,9 +17,16 @@ dragons_room = Room("Dragon's_Room")
 skeletons_room = Room("Skeleton's Room")
 frodo_room = Room("Frodo's Room")
 """Characters"""
-wilson_volleyball = Person("Wilson the volleyball")
-floyd_collins = Person("floyd collins")
-gollum = Person("gollum")
+wilson_volleyball = Person("Wilson the volleyball", " What are you doing here?...\n"
+                                                    " Never mind I don't really care. Ever since I lost\n"
+                                                    " my main man Forrest Gump to the cruel mistress to the sea\n"
+                                                    " life has been so miserable. Anyway here have a fishing rod.")
+floyd_collins = Person("floyd collins", "Hi, my name is Floyd Collins. Ive been stuck under this rock for \n"
+                                        "a long time and I don't want to get laughed at by my brother.\n"
+                                        "The lake is north of here, but help a man out and end my suffering.")
+gollum = Person("gollum", "Misery misery! Hobbits won’t kill us, nice hobbits. My precious. \n"
+                          "Oh it's you Baggins. My precious means everything to me, but I\n"
+                          "would be happy to trade my precious for a fish. ")
 troglodyte = Troglodyte()
 dragon = Dragon("dragon")
 """Items"""
@@ -72,7 +79,8 @@ while True:
     if character_options == 1:
         troglodyte_location.search_room()
     if character_options == 2:
-        pass
+        character_choice = input("What character do you want to talk to? ")
+        troglodyte.ask_character_question(character_choice)
     if character_options == 3:
         pass
     if character_options == 4:
