@@ -9,11 +9,18 @@ class Troglodyte:
         self.starting_message = "what am I doing here?\n All I remember is being angry at something on r/PrequelMemes "\
                                 "and waking up here.\n I need to hurry up and get out of here before someone has a " \
                                 "cringe opinion on sonic 2006"
+
         self.dialogue_options = "Would you like to:\n " \
-                                "1. Search Room" \
-                                "2. Talk to character" \
-                                "3. Look in backpack" \
-                                "4. Collect Items"
+                                "1. Search Room\n" \
+                                "2. Talk to character\n" \
+                                "3. Look in backpack\n" \
+                                "4. Collect Items\n"
+
+    def character_options(self):
+        self.print_slow(self.dialogue_options)
+        player_entry = input("")
+        if player_entry.isnumeric():
+            print(player_entry)
 
     def died(self):
         self.is_alive = False

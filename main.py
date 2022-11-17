@@ -62,6 +62,9 @@ lake_room.item1 = fish
 frodo_room.item1 = note
 wilson_volleyball.item = fishing_rod
 gollum.item = the_one_ring
+"""Game options"""
+
+
 """Game Start"""
 starting_room.troglodyte_character.print_slow(troglodyte.starting_message)
 
