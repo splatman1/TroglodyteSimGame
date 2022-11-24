@@ -4,7 +4,7 @@ import time
 
 
 class Troglodyte:
-    def __init__(self, backpack=None):
+    def __init__(self, backpack):
         self.is_alive = True
         self.starting_message = "what am I doing here?\n All I remember is being angry at something on r/PrequelMemes "\
                                 "and waking up here.\n I need to hurry up and get out of here before someone has a " \

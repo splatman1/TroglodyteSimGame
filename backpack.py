@@ -15,11 +15,9 @@ class BackPack:
 
     """
 
-    def __init__(self, items):
+    def __init__(self, items=None):
         self._backpack = []
         if items is None:
-            items = []
-        if type(items) is not "<class 'list'>":
             items = []
         for item in items:
             self._backpack.append(item)
@@ -41,24 +39,28 @@ class BackPack:
 
 
 
+    def get_key(self, item):
+        return item.item
     def sort(self):
-        self._backpack.sort()
+        self._backpack.sort(key=self.get_key)
 
     def count(self):
         pass
 
     def list(self):
-        pass
+        for i in self._backpack:
+            print(i.item)
 
-    def add(self, item1 = None, item2=None, item3=None):
+    def add(self, item1=None, item2=None, item3=None):
         items = [item1, item2, item3]
         for i in items:
-                self._backpack.append(i)
-                self.sort()
-                print("Added backpack")
+            print(f"Adding {i.item} to backpack")
+            if i.item != None:
+                self._backpack.append(item1)
+                # self._backpack.sort()
 
 
-    def in_backpack(self, item):
+    def in_backpack(self, target):
         """
         Complete this method using a binary search
         returns -1 or False if not found
@@ -66,4 +68,15 @@ class BackPack:
         :param item:
         :return: -1 | False | integer
         """
-        return None
+        min_value = 0
+        max_value = len(self._backpack)
+        while min_value <= max_value:
+            middle = min_value + (max_value - min_value) // 2
+            midpoint = self._backpack[middle].name
+
+            if midpoint > target:
+                max_value = middle -1
+            elif midpoint < target:
+                min_value = middle + 1
+            else:
+                return midpoint

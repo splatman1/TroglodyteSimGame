@@ -16,6 +16,8 @@ weapons_room = Room("Weapon's Room")
 dragons_room = Room("Dragon's_Room")
 skeletons_room = Room("Skeleton's Room")
 frodo_room = Room("Frodo's Room")
+"""BackPack"""
+backpack = BackPack()
 """Characters"""
 wilson_volleyball = Person("Wilson the volleyball", " What are you doing here?...\n"
                                                     " Never mind I don't really care. Ever since I lost\n"
@@ -27,7 +29,7 @@ floyd_collins = Person("floyd collins", "Hi, my name is Floyd Collins. Ive been 
 gollum = Person("gollum", "Misery misery! Hobbits won’t kill us, nice hobbits. My precious. \n"
                           "Oh it's you Baggins. My precious means everything to me, but I\n"
                           "would be happy to trade my precious for a fish. ")
-troglodyte = Troglodyte(BackPack)
+troglodyte = Troglodyte(backpack)
 dragon = Dragon("dragon")
 """Items"""
 the_one_ring = Items("The One Ring")
@@ -39,10 +41,8 @@ key = Items("Key")
 id = Items("ID")
 shopping_list = Items("Shopping List")
 floyds_note = Items("Floyd's Note")
-skeleton = Items("Skeleton")
+skeleton = Items("Skeleton", False)
 map = Items("Map")
-"""Backpack"""
-backpack = BackPack(None)
 """Setup directions"""
 starting_room.find_directions(wilsons_room)
 skeletons_room.find_directions(floyds_room)
@@ -75,7 +75,6 @@ troglodyte.print_slow(troglodyte.starting_message)
 """Game setup"""
 troglodyte_location = starting_room
 while True:
-    print("Hello")
     character_options = troglodyte.character_options()
     if character_options == 1:
         troglodyte_location.search_room()
@@ -83,7 +82,7 @@ while True:
         character_choice = input("What character do you want to talk to? ")
         troglodyte.ask_character_question(character_choice)
     if character_options == 3:
-        pass
+        troglodyte_location.troglodyte_character.backpack.list()
     if character_options == 4:
         troglodyte_location.troglodyte_character.backpack.add(troglodyte_location.item1, troglodyte_location.item2,
                                                               troglodyte_location.item3)

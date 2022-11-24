@@ -21,6 +21,7 @@ class Room:
         self.west = west_room
 
     def move_character(self):
+        self.troglodyte_location = Room
         north = ''
         east = ''
         south = ''
@@ -39,7 +40,7 @@ class Room:
         if choose_direction not in direction_options.lower():
             print("I can't enter a room without a door")
         if choose_direction in direction_options.lower():
-            print(choose_direction, north)
+            print(f"You walk {choose_direction}\n")
             if choose_direction.lower() in north.lower():
                 self.north.troglodyte_character = self.troglodyte_character
                 self.troglodyte_location = self.north
@@ -60,9 +61,9 @@ class Room:
         return self.troglodyte_location
 
     def search_room(self):
-        item1 = None
-        item2 = None
-        item3 = None
+        item1 = 'Nothing'
+        item2 = ''
+        item3 = ''
 
         if self.item1 != None:
             item1 = self.item1.item
@@ -73,7 +74,7 @@ class Room:
         if self.characters != None:
             print(f"A wild {str(self.characters.name)} appeared")
 
-        print(f"I see a {item1}, {item2}, {item3} and I'm in a place called {self.room_name} weird name...")
+        print(f"I see a {item1} {item2} {item3} and I'm in a place called {self.room_name} weird name...")
 
 
 
