@@ -76,6 +76,8 @@ gollum.item = the_one_ring
 troglodyte.print_slow(troglodyte.starting_message)
 """Game setup"""
 troglodyte_location = starting_room
+starter_message = "\nYou find yourself in " + (troglodyte_location.room_name.replace("_", " "))+"\n"
+Troglodyte.print_slow(troglodyte, starter_message)
 while True:
     character_options = troglodyte.character_options()
     if character_options == 1:
@@ -89,9 +91,8 @@ while True:
     if character_options == 3:
         troglodyte_location.troglodyte_character.backpack.list()
     if character_options == 4:
-        troglodyte_location.troglodyte_character.backpack.add(troglodyte_location, troglodyte_location.item1,
-                                                              troglodyte_location.item2,
-                                                              troglodyte_location.item3)
+        items = troglodyte_location.pick_up_item()
+        troglodyte_location.troglodyte_character.backpack.add(troglodyte_location, items)
     if character_options == 5:
         troglodyte_location.move_character()
         troglodyte_location = troglodyte_location.get_current_location()

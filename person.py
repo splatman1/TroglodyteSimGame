@@ -10,8 +10,11 @@ class Person:
 
     def talk_to_character(self, location, backpack):
         print(self.character_message)
-        print(self.item.item)
-        backpack.add(location, self.item)
+        if location.item is not None:
+            print(self.item.item)
+            backpack.add(location, self.item)
+        else:
+            pass
 
     def remove_items(self):
         self.item = None

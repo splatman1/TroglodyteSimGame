@@ -1,17 +1,12 @@
 class Items:
-    def __init__(self, item, collectable=True, readable=True, message=None, location=None):
+    def __init__(self, item, collectable=True, readable=True, message=None, location=None, item_required=None):
         self.location = location
         self.item = item
         self.message = message
         self.is_collectable = collectable
         self.is_readable = readable
+        self.requires_item = item_required
 
-    def pick_up_item(self, location):
-        if self.is_collectable:
-            self.location = location
-            return self.item
-        if not self.is_collectable:
-            print("object cannot be collected")
 
     def interpret_message(self):
         if self.is_readable:

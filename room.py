@@ -56,6 +56,8 @@ class Room:
             if choose_direction in west.lower():
                 self.west.troglodyte_character = self.troglodyte_character
                 self.troglodyte_location = self.west
+            print("You find yourself in " + self.troglodyte_location.room_name.replace("_", " "))
+            self.troglodyte_location = Room
 
     def remove_items(self):
         self.item1 = None
@@ -66,20 +68,28 @@ class Room:
         return self.troglodyte_location
 
     def search_room(self):
-        item1 = 'Nothing'
+        item1 = 'bsolutely Nothing'
         item2 = ''
         item3 = ''
 
-        if self.item1 != None:
-            item1 = self.item1.item
-        if self.item2 != None:
-            item2 = self.item2.item
-        if self.item3 != None:
-            item3 = self.item3.item
-        if self.characters != None:
+        if self.item1 is not None:
+            item1 = " " + self.item1.item
+        if self.item2 is not None:
+            item2 = ", " + self.item2.item
+        if self.item3 is not None:
+            item3 = ", " + self.item3.item
+        if self.characters is not None:
             print(f"A wild {str(self.characters.name)} appeared")
+        print(f"I see a{item1}{item2}{item3} and I'm in a place called {self.room_name} weird name...")
 
-        print(f"I see a {item1} {item2} {item3} and I'm in a place called {self.room_name} weird name...")
+    def pick_up_item(self):
+        items = [self.item1, self.item2, self.item3]
+        items_available = []
+        for i in items:
+            if i is not None:
+                if i.is_collectable:
+                    items_available.append(i)
+        return items_available
 
 
 
