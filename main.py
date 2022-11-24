@@ -75,6 +75,7 @@ troglodyte.print_slow(troglodyte.starting_message)
 """Game setup"""
 troglodyte_location = starting_room
 while True:
+    print("Hello")
     character_options = troglodyte.character_options()
     if character_options == 1:
         troglodyte_location.search_room()
@@ -87,6 +88,7 @@ while True:
         troglodyte_location.troglodyte_character.backpack.add(troglodyte_location.item1, troglodyte_location.item2,
                                                               troglodyte_location.item3)
     if character_options == 5:
-        troglodyte_location = troglodyte_location.move_character()
-        print(troglodyte_location)
+        troglodyte_location.move_character()
+        troglodyte_location = troglodyte_location.get_current_location()
+
 

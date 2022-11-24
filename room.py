@@ -12,6 +12,7 @@ class Room:
         self.west = west
         self.characters = characters
         self.troglodyte_character = troglodyte_character
+        self.troglodyte_location = None
 
     def find_directions(self, north_room=None, east_room=None, south_room=None, west_room=None):
         self.north = north_room
@@ -38,19 +39,25 @@ class Room:
         if choose_direction not in direction_options.lower():
             print("I can't enter a room without a door")
         if choose_direction in direction_options.lower():
-            if choose_direction == north.lower():
+            print(choose_direction, north)
+            if choose_direction.lower() in north.lower():
                 self.north.troglodyte_character = self.troglodyte_character
-                return self.north
-            if choose_direction == east.lower():
-                self.east.troglodyte_character = self.troglodyte_character
-                return self.east
-            if choose_direction == south.lower():
-                self.south.troglodyte_character = self.troglodyte_character
-                return self.south
-            if choose_direction == west.lower():
-                self.west.troglodyte_character = self.troglodyte_character
-                return self.west
+                self.troglodyte_location = self.north
 
+            if choose_direction in east.lower():
+                self.east.troglodyte_character = self.troglodyte_character
+                self.troglodyte_location = self.east
+
+            if choose_direction in south.lower():
+                self.south.troglodyte_character = self.troglodyte_character
+                self.troglodyte_location = self.south
+
+            if choose_direction in west.lower():
+                self.west.troglodyte_character = self.troglodyte_character
+                self.troglodyte_location = self.west
+
+    def get_current_location(self):
+        return self.troglodyte_location
 
     def search_room(self):
         item1 = None
