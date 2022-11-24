@@ -43,12 +43,13 @@ class Room:
                 return self.north
             if choose_direction == east.lower():
                 self.east.troglodyte_character = self.troglodyte_character
+                return self.east
             if choose_direction == south.lower():
                 self.south.troglodyte_character = self.troglodyte_character
+                return self.south
             if choose_direction == west.lower():
                 self.west.troglodyte_character = self.troglodyte_character
-            self.troglodyte_character = None
-            return self.north
+                return self.west
 
 
     def search_room(self):
@@ -67,9 +68,6 @@ class Room:
 
         print(f"I see a {item1}, {item2}, {item3} and I'm in a place called {self.room_name} weird name...")
 
-        if self.characters.name == "dragon":
-            self.characters.search_for_player(self.troglodyte_character)
-        self.explored = True
 
 
 

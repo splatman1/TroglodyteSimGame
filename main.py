@@ -27,7 +27,7 @@ floyd_collins = Person("floyd collins", "Hi, my name is Floyd Collins. Ive been 
 gollum = Person("gollum", "Misery misery! Hobbits won’t kill us, nice hobbits. My precious. \n"
                           "Oh it's you Baggins. My precious means everything to me, but I\n"
                           "would be happy to trade my precious for a fish. ")
-troglodyte = Troglodyte()
+troglodyte = Troglodyte(BackPack)
 dragon = Dragon("dragon")
 """Items"""
 the_one_ring = Items("The One Ring")
@@ -71,9 +71,9 @@ frodo_room.item1 = note
 wilson_volleyball.item = fishing_rod
 gollum.item = the_one_ring
 """Game options"""
-troglodyte_location = starting_room
 troglodyte.print_slow(troglodyte.starting_message)
 """Game setup"""
+troglodyte_location = starting_room
 while True:
     character_options = troglodyte.character_options()
     if character_options == 1:
@@ -84,7 +84,9 @@ while True:
     if character_options == 3:
         pass
     if character_options == 4:
-        pass
+        troglodyte_location.troglodyte_character.backpack.add(troglodyte_location.item1, troglodyte_location.item2,
+                                                              troglodyte_location.item3)
     if character_options == 5:
         troglodyte_location = troglodyte_location.move_character()
+        print(troglodyte_location)
 

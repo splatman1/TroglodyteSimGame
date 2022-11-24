@@ -3,6 +3,7 @@ class Person:
         self.character_message = message
         self.item = item
         self.name = name
+        self.backpack = None
 
 
 

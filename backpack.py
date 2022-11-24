@@ -45,15 +45,18 @@ class BackPack:
         self._backpack.sort()
 
     def count(self):
-        return self._backpack.count()
+        pass
 
     def list(self):
         pass
 
-    def add(self, item):
-        if item is not None:
-            self._backpack.append(item)
-            self.sort()
+    def add(self, item1 = None, item2=None, item3=None):
+        items = [item1, item2, item3]
+        for i in items:
+                self._backpack.append(i)
+                self.sort()
+                print("Added backpack")
+
 
     def in_backpack(self, item):
         """
