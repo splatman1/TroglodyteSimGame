@@ -18,9 +18,10 @@ class Troglodyte:
                                 "5. Move Rooms\n"
         self.backpack = backpack
 
+
     def ask_character_question(self, character):
         print(f"Hello There {character}")
-
+        print("HI")
 
 
     def character_options(self):

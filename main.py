@@ -53,6 +53,8 @@ gollums_room.find_directions(frodo_room, None, weapons_room, wilsons_room)
 lake_room.find_directions(None, None, floyds_room)
 dragons_room.find_directions(outside, None, wilsons_room)
 frodo_room.find_directions(None, None, gollums_room, None)
+"""Item requirements"""
+gollum.item_wanted = fish
 """Setup Character Locations"""
 starting_room.troglodyte_character = troglodyte
 wilsons_room.characters = wilson_volleyball
@@ -78,13 +80,17 @@ while True:
     character_options = troglodyte.character_options()
     if character_options == 1:
         troglodyte_location.search_room()
+
     if character_options == 2:
-        character_choice = input("What character do you want to talk to? ")
-        troglodyte.ask_character_question(character_choice)
+        troglodyte_location.troglodyte_character.ask_character_question(troglodyte_location.characters.name)
+        troglodyte_location.characters.talk_to_character(troglodyte_location.characters,
+                                                         troglodyte_location.troglodyte_character.backpack)
+
     if character_options == 3:
         troglodyte_location.troglodyte_character.backpack.list()
     if character_options == 4:
-        troglodyte_location.troglodyte_character.backpack.add(troglodyte_location.item1, troglodyte_location.item2,
+        troglodyte_location.troglodyte_character.backpack.add(troglodyte_location, troglodyte_location.item1,
+                                                              troglodyte_location.item2,
                                                               troglodyte_location.item3)
     if character_options == 5:
         troglodyte_location.move_character()

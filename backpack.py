@@ -48,16 +48,29 @@ class BackPack:
         pass
 
     def list(self):
+        if len(self._backpack) == 0:
+            print("You have nothing!, You lose!")
         for i in self._backpack:
             print(i.item)
 
-    def add(self, item1=None, item2=None, item3=None):
-        items = [item1, item2, item3]
+    def add(self, location, item1=None, item2=None, item3=None):
+        items = []
+        if item1 is not None:
+            items.append(item1)
+        if item2 is not None:
+            items.append(item2)
+        if item3 is not None:
+            items.append(item3)
+
         for i in items:
-            print(f"Adding {i.item} to backpack")
-            if i.item != None:
-                self._backpack.append(item1)
-                # self._backpack.sort()
+            if i.item is not None:
+                print(f"Adding {i.item} to backpack")
+                if i.is_collectable:
+                    self._backpack.append(item1)
+                    location.remove_items()
+            if i.item is None:
+                print("N")
+            self.sort()
 
 
     def in_backpack(self, target):

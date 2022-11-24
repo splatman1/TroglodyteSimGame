@@ -57,6 +57,11 @@ class Room:
                 self.west.troglodyte_character = self.troglodyte_character
                 self.troglodyte_location = self.west
 
+    def remove_items(self):
+        self.item1 = None
+        self.item2 = None
+        self.item3 = None
+
     def get_current_location(self):
         return self.troglodyte_location
 
