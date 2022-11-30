@@ -13,6 +13,7 @@ class Room:
         self.characters = characters
         self.troglodyte_character = troglodyte_character
         self.troglodyte_location = None
+        self.room_requirement = None
 
     def find_directions(self, north_room=None, east_room=None, south_room=None, west_room=None):
         self.north = north_room
@@ -41,6 +42,8 @@ class Room:
             print("I can't enter a room without a door")
         if choose_direction in direction_options.lower():
             print(f"You walk {choose_direction}\n")
+        if self.room_name == "Dragon's_Room":
+            self.characters.search_for_player(self.troglodyte_character)
             if choose_direction.lower() in north.lower():
                 self.north.troglodyte_character = self.troglodyte_character
                 self.troglodyte_location = self.north
@@ -56,8 +59,7 @@ class Room:
             if choose_direction in west.lower():
                 self.west.troglodyte_character = self.troglodyte_character
                 self.troglodyte_location = self.west
-            print("You find yourself in " + self.troglodyte_location.room_name.replace("_", " "))
-            self.troglodyte_location = Room
+            print(f"You find yourself in {self.troglodyte_location.room_name}")
 
     def remove_items(self):
         self.item1 = None
@@ -90,6 +92,7 @@ class Room:
                 if i.is_collectable:
                     items_available.append(i)
         return items_available
+
 
 
 

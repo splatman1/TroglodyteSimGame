@@ -55,6 +55,8 @@ dragons_room.find_directions(outside, None, wilsons_room)
 frodo_room.find_directions(None, None, gollums_room, None)
 """Item requirements"""
 gollum.item_wanted = fish
+lake_room.room_requirement = fishing_rod
+dragons_room.room_requirement = key
 """Setup Character Locations"""
 starting_room.troglodyte_character = troglodyte
 wilsons_room.characters = wilson_volleyball

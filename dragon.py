@@ -12,7 +12,7 @@ class Dragon:
             print("YOU DIED")
 
     def kill_player(self, player):
-        Troglodyte.is_alive = False
+        player.died()
 
 
 
