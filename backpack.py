@@ -66,7 +66,6 @@ class BackPack:
                     self.sort()
 
 
-
     def in_backpack(self, target):
         """
         Complete this method using a binary search
@@ -87,3 +86,4 @@ class BackPack:
                 min_value = middle + 1
             else:
                 return midpoint
+

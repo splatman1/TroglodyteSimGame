@@ -42,8 +42,10 @@ class Room:
             print("I can't enter a room without a door")
         if choose_direction in direction_options.lower():
             print(f"You walk {choose_direction}\n")
-        if self.room_name == "Dragon's_Room":
-            self.characters.search_for_player(self.troglodyte_character)
+
+            if self.room_name == "Dragon's_Room":
+                self.characters.search_for_player(self.troglodyte_character)
+
             if choose_direction.lower() in north.lower():
                 self.north.troglodyte_character = self.troglodyte_character
                 self.troglodyte_location = self.north
@@ -84,14 +86,29 @@ class Room:
             print(f"A wild {str(self.characters.name)} appeared")
         print(f"I see a{item1}{item2}{item3} and I'm in a place called {self.room_name} weird name...")
 
-    def pick_up_item(self):
-        items = [self.item1, self.item2, self.item3]
-        items_available = []
-        for i in items:
-            if i is not None:
-                if i.is_collectable:
-                    items_available.append(i)
-        return items_available
+    def pick_up_item(self, location, backpack):
+        if self.room_requirement is not None:
+            print(f"I need a {self.room_requirement.item} to collect items in here")
+            item_returned = backpack.in_backpack(location, self.room_requirement)
+            if item_returned is None:
+                if item_returned is None:
+                    print(f"I dont have a {self.room_requirement} Yet")
+                if item_returned == self.room_requirement:
+                    items = [self.item1, self.item2, self.item3]
+                    items_available = []
+                    for i in items:
+                        if i is not None:
+                            if i.is_collectable:
+                                items_available.append(i)
+                    return items_available
+        if self.room_requirement is None:
+            items = [self.item1, self.item2, self.item3]
+            items_available = []
+            for i in items:
+                if i is not None:
+                    if i.is_collectable:
+                        items_available.append(i)
+            return items_available
 
 
 

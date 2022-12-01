@@ -54,7 +54,8 @@ lake_room.find_directions(None, None, floyds_room)
 dragons_room.find_directions(outside, None, wilsons_room)
 frodo_room.find_directions(None, None, gollums_room, None)
 """Item requirements"""
-gollum.item_wanted = fish
+gollum.item_wanted = True
+gollum.item_name_wanted = fish
 lake_room.room_requirement = fishing_rod
 dragons_room.room_requirement = key
 """Setup Character Locations"""
@@ -69,11 +70,10 @@ starting_room.item2 = id
 starting_room.item3 = shopping_list
 skeletons_room.item1 = skeleton
 weapons_room.item1 = knife
-gollum.item1 = the_one_ring
 lake_room.item1 = fish
 frodo_room.item1 = note
 wilson_volleyball.item = fishing_rod
-gollum.item = the_one_ring
+gollum.tradable_item = the_one_ring
 """Game options"""
 troglodyte.print_slow(troglodyte.starting_message)
 """Game setup"""
@@ -93,7 +93,8 @@ while True:
     if character_options == 3:
         troglodyte_location.troglodyte_character.backpack.list()
     if character_options == 4:
-        items = troglodyte_location.pick_up_item()
+        items = troglodyte_location.pick_up_item(troglodyte_location.characters,
+                                                         troglodyte_location.troglodyte_character.backpack)
         troglodyte_location.troglodyte_character.backpack.add(troglodyte_location, items)
     if character_options == 5:
         troglodyte_location.move_character()

@@ -34,7 +34,8 @@ class Troglodyte:
 
     def died(self):
         self.is_alive = False
-        print("Your Dead!!")
+        self.print_slow("Your Dead!!")
+        print("DONT BE IMPATIENT, YOU MUST LOOK EXPLORE BEFORE\n YOU CAN BE FREE!")
 
     def print_slow(self, dialogue):
         dialogue = f"{dialogue}\n"
