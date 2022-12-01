@@ -9,25 +9,29 @@ class Person:
 
 
 
+
     def talk_to_character(self, location, backpack):
         print(self.character_message)
         if location.item is not None:
-            print(self.item.item)
             items = []
             items.append(self.item)
             backpack.add(location, items)
         if self.item_wanted:
-            item_returned = backpack.in_backpack(location, self.item_name_wanted)
-            if item_returned is None:
-                print("You dont have what I need yet")
-            if item_returned == self.item_name_wanted:
+            backpack.sort()
+            item_found = backpack.in_backpack(self.item_name_wanted.item)
+            if item_found is None:
+                print(f"A {self.item_name_wanted.item} is the only currency down here")
+            if item_found == self.item_name_wanted.item:
+                items = []
+                items.append(self.tradable_item)
+                backpack.add(location, items)
                 print("A trade it is then")
-                backpack.add(location, self.tradable_item)
-                self.tradable_item = None
-
+                self.tradable_item = False
+                self.item_name_wanted = False
+                self.item_wanted = False
 
         else:
-            pass
+            return[]
 
     def remove_items(self):
         self.item = None

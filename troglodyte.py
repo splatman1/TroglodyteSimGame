@@ -4,19 +4,20 @@ import time
 
 
 class Troglodyte:
-    def __init__(self, backpack):
+    def __init__(self, backpack, player_viewable=True):
         self.is_alive = True
         self.starting_message = "what am I doing here?\n All I remember is being angry at something on r/PrequelMemes "\
                                 "and waking up here.\n I need to hurry up and get out of here before someone has a " \
                                 "cringe opinion on sonic 2006"
 
-        self.choices = "Would you like to:\n " \
+        self.choices = "\nWould you like to:\n " \
                                 "1. Search Room\n" \
                                 "2. Talk to character\n" \
                                 "3. Look in backpack\n" \
                                 "4. Collect Items\n" \
                                 "5. Move Rooms\n"
         self.backpack = backpack
+        self.player_viewable = player_viewable
 
 
     def ask_character_question(self, character):

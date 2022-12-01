@@ -26,9 +26,10 @@ wilson_volleyball = Person("Wilson the volleyball", " What are you doing here?..
 floyd_collins = Person("floyd collins", "Hi, my name is Floyd Collins. Ive been stuck under this rock for \n"
                                         "a long time and I don't want to get laughed at by my brother.\n"
                                         "The lake is north of here, but help a man out and end my suffering.")
-gollum = Person("gollum", "Misery misery! Hobbits won’t kill us, nice hobbits. My precious. \n"
+gollum = Person("gollum", "Misery misery! Hobbits won’t kill us, nice hobbits. My precioussssssssss. \n"
                           "Oh it's you Baggins. My precious means everything to me, but I\n"
-                          "would be happy to trade my precious for a fish. ")
+                          "would be happy to trade my precious for a fish. It will also let you get through \n"
+                          "the dragons room. ")
 troglodyte = Troglodyte(backpack)
 dragon = Dragon("dragon")
 """Items"""
@@ -93,11 +94,10 @@ while True:
     if character_options == 3:
         troglodyte_location.troglodyte_character.backpack.list()
     if character_options == 4:
-        items = troglodyte_location.pick_up_item(troglodyte_location.characters,
-                                                         troglodyte_location.troglodyte_character.backpack)
+        items = troglodyte_location.pick_up_item(troglodyte_location.troglodyte_character.backpack)
         troglodyte_location.troglodyte_character.backpack.add(troglodyte_location, items)
     if character_options == 5:
-        troglodyte_location.move_character()
+        troglodyte_location.move_character(troglodyte_location.troglodyte_character.backpack)
         troglodyte_location = troglodyte_location.get_current_location()
 
 

@@ -21,7 +21,7 @@ class Room:
         self.south = south_room
         self.west = west_room
 
-    def move_character(self):
+    def move_character(self, backpack):
         self.troglodyte_location = Room
         north = ''
         east = ''
@@ -44,7 +44,7 @@ class Room:
             print(f"You walk {choose_direction}\n")
 
             if self.room_name == "Dragon's_Room":
-                self.characters.search_for_player(self.troglodyte_character)
+                self.characters.search_for_player(self.troglodyte_character, backpack)
 
             if choose_direction.lower() in north.lower():
                 self.north.troglodyte_character = self.troglodyte_character
@@ -86,21 +86,21 @@ class Room:
             print(f"A wild {str(self.characters.name)} appeared")
         print(f"I see a{item1}{item2}{item3} and I'm in a place called {self.room_name} weird name...")
 
-    def pick_up_item(self, location, backpack):
+    def pick_up_item(self, backpack):
         if self.room_requirement is not None:
-            print(f"I need a {self.room_requirement.item} to collect items in here")
-            item_returned = backpack.in_backpack(location, self.room_requirement)
-            if item_returned is None:
-                if item_returned is None:
-                    print(f"I dont have a {self.room_requirement} Yet")
-                if item_returned == self.room_requirement:
-                    items = [self.item1, self.item2, self.item3]
-                    items_available = []
-                    for i in items:
-                        if i is not None:
-                            if i.is_collectable:
-                                items_available.append(i)
-                    return items_available
+            print(f"I need a {self.room_requirement.item} to collect items in here.\n"
+                  f"I better look around and find it.")
+            backpack.sort()
+            returned_item = backpack.in_backpack(self.room_requirement.item)
+            if returned_item is not None:
+                if returned_item == self.room_requirement.item:
+                    items = []
+                    items.append(self.item1)
+                    self.item1 = None
+                    self.room_requirement = None
+                    return items
+            return []
+
         if self.room_requirement is None:
             items = [self.item1, self.item2, self.item3]
             items_available = []
@@ -109,7 +109,6 @@ class Room:
                     if i.is_collectable:
                         items_available.append(i)
             return items_available
-
 
 
 
