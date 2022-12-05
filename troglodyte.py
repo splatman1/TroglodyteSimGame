@@ -4,6 +4,8 @@ import time
 
 
 class Troglodyte:
+    """This is the Troglodyte class or the character the player will be playing as.
+    It mainly holds dialogue options as well as the status of the troglodyte"""
     def __init__(self, backpack, player_viewable=True):
         self.is_alive = True
         self.starting_message = "what am I doing here?\n All I remember is being angry at something on r/PrequelMemes "\
@@ -21,11 +23,13 @@ class Troglodyte:
 
 
     def ask_character_question(self, character):
+        """This is called when the player wants to communicate with a player."""
         print(f"Hello There {character}")
         print("HI")
 
 
     def character_options(self):
+        """This prints the players options which are listed above."""
         self.print_slow(self.choices)
         player_entry = input("What should I do? ")
         if player_entry.isnumeric():
@@ -34,11 +38,14 @@ class Troglodyte:
                 return player_entry
 
     def died(self):
+        """This is only called by the dragon class to kill the player."""
         self.is_alive = False
         self.print_slow("Your Dead!!")
         print("DONT BE IMPATIENT, YOU MUST LOOK EXPLORE BEFORE\n YOU CAN BE FREE!")
 
     def print_slow(self, dialogue):
+        """This is a print_slow function which makes the text printed look more like an
+        old text based game."""
         dialogue = f"{dialogue}\n"
         for letter in dialogue:
             sys.stdout.write(letter)

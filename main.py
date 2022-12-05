@@ -5,7 +5,9 @@ from items import Items
 from troglodyte import Troglodyte
 from dragon import Dragon
 from backpack import BackPack
-"""Rooms"""
+"""This is where I use my room class to setup different instances of rooms.
+It takes in the name of the room and other optional requirements"""
+
 starting_room = Room("Starting_Room")
 lake_room = Room("Lake Room")
 floyds_room = Room("Floyd's Room")
@@ -16,9 +18,9 @@ weapons_room = Room("Weapon's Room")
 dragons_room = Room("Dragon's_Room")
 skeletons_room = Room("Skeleton's Room")
 frodo_room = Room("Frodo's Room")
-"""BackPack"""
+"""This is my the instance of my backpack class"""
 backpack = BackPack()
-"""Characters"""
+"""This is where I setup the instances of my characters. They take in a quote as well as the name of the character."""
 wilson_volleyball = Person("Wilson the volleyball", " What are you doing here?...\n"
                                                     " Never mind I don't really care. Ever since I lost\n"
                                                     " my main man Forrest Gump to the cruel mistress to the sea\n"
@@ -30,9 +32,15 @@ gollum = Person("gollum", "Misery misery! Hobbits won’t kill us, nice hobbits.
                           "Oh it's you Baggins. My precious means everything to me, but I\n"
                           "would be happy to trade my precious for a fish. It will also let you get through \n"
                           "the dragons room. ")
+
+"""This is my main character which has it's own class called Troglodyte"""
 troglodyte = Troglodyte(backpack)
+"""This is the dragon or the final boss. You can't get past him unless you have the one ring which makes you 
+invisible."""
 dragon = Dragon("dragon")
-"""Items"""
+
+"""This is where I initialise all of my items
+It takes a name and can optionally take a is pickable option/"""
 the_one_ring = Items("The One Ring")
 knife = Items("Knife")
 fish = Items("Fish")
@@ -44,7 +52,8 @@ shopping_list = Items("Shopping List")
 floyds_note = Items("Floyd's Note")
 skeleton = Items("Skeleton", False)
 map = Items("Map")
-"""Setup directions"""
+"""This is how I setup the Directions for each room such as if you can go North, East, South or West.
+The parameters are north_room, east_room, south_room and west_room."""
 starting_room.find_directions(wilsons_room)
 skeletons_room.find_directions(floyds_room)
 weapons_room.find_directions(gollums_room)
@@ -54,18 +63,21 @@ gollums_room.find_directions(frodo_room, None, weapons_room, wilsons_room)
 lake_room.find_directions(None, None, floyds_room)
 dragons_room.find_directions(outside, None, wilsons_room)
 frodo_room.find_directions(None, None, gollums_room, None)
-"""Item requirements"""
+"""This is where I setup each room or each characters requirements to unlock or interact sort of like a key.
+In this game gollum wants a fish, the lake room requires a fishing rod and the dragon room requires a key."""
 gollum.item_wanted = True
 gollum.item_name_wanted = fish
 lake_room.room_requirement = fishing_rod
 dragons_room.room_requirement = key
-"""Setup Character Locations"""
+"""This is where I setup my characters locations.
+The parameter is an instance of a  character class."""
 starting_room.troglodyte_character = troglodyte
 wilsons_room.characters = wilson_volleyball
 gollums_room.characters = gollum
 floyds_room.characters = floyd_collins
 dragons_room.characters = dragon
-"""Setup Item Locations"""
+"""This is where I setup my item locations.
+The parameter is an instance of an item class"""
 starting_room.item1 = key
 starting_room.item2 = id
 starting_room.item3 = shopping_list
@@ -75,14 +87,18 @@ lake_room.item1 = fish
 frodo_room.item1 = note
 wilson_volleyball.item = fishing_rod
 gollum.tradable_item = the_one_ring
-"""Game options"""
+"""This is the first message the player will see and is the introduction to the story."""
 troglodyte.print_slow(troglodyte.starting_message)
-"""Game setup"""
+"""This sets up the character location and the starting message."""
 troglodyte_location = starting_room
 starter_message = "\nYou find yourself in " + (troglodyte_location.room_name.replace("_", " "))+"\n"
 Troglodyte.print_slow(troglodyte, starter_message)
 while True:
+    """This prints the characters location each time they enter an option."""
     character_options = troglodyte.character_options()
+    """The player is given 5 options for everywhere they go. 
+    These options are: 
+    search_room, ask_character_question, show_items_in_bag, collect_items and move_character"""
     if character_options == 1:
         troglodyte_location.search_room()
 

@@ -1,4 +1,6 @@
 class Person:
+    """The Person class or character class is takes in properties from main to initialise characters
+    as well as give the player dialogue and other items."""
     def __init__(self, name, message, item_wanted = False, item=None, item_name_wanted=None, tradable_item=None):
         self.character_message = message
         self.item = item

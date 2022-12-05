@@ -7,10 +7,10 @@ class BackPack:
 
     ToDo: [X] Instantiate backpack
     ToDo: [X] Add Item
-    ToDo: [ ] Remove Item
-    ToDo: [ ] List Items
+    ToDo: [X] Remove Item
+    ToDo: [X] List Items
     ToDo: [X] Count items
-    ToDo: [ ] in backpack (Search for Item - Student to do)
+    ToDo: [X] in backpack (Search for Item - Student to do)
     ToDo: [X] Sort Items
 
     """
@@ -37,6 +37,7 @@ class BackPack:
     #         if not item_number.isnumeric():
     #             print("please enter a number")
     def remove(self, item):
+        """This removes items from the backpack by taking in the item it wishes to remove."""
         self.sort()
         self._backpack.remove(item.item)
 
@@ -45,12 +46,15 @@ class BackPack:
     def get_key(self, item):
         return item.item
     def sort(self):
+        """Lists have trouble adding instances to them so this assigns a key so it won't break"""
         self._backpack.sort(key=self.get_key)
 
     def count(self):
         pass
 
     def list(self):
+        """The list function prints out all the items in the players backpack.
+        If the player has nothing it will print a famous quote from charlie and the chocolate factory"""
         if len(self._backpack) == 0:
             print("You have nothing!, You lose!")
         print(" I'm a backpack loaded up with things and knickknacks too.\n"
@@ -59,6 +63,7 @@ class BackPack:
             print(i.item)
 
     def add(self, location, items):
+        """The add function takes in a list of items and adds them to the backpack"""
         items = items
         for i in items:
             if i is not None:
@@ -71,11 +76,9 @@ class BackPack:
 
     def in_backpack(self, target):
         """
-        Complete this method using a binary search
-        returns -1 or False if not found
-        returns position if found
-        :param item:
-        :return: -1 | False | integer
+        This function checks the players
+        backpack for items and returns it if it is found.
+        This is mainly used for keys and other item requirements.
         """
         self.sort()
 
