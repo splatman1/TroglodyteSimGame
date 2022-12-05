@@ -88,6 +88,25 @@ frodo_room.item1 = note
 wilson_volleyball.item = fishing_rod
 gollum.tradable_item = the_one_ring
 """This is the first message the player will see and is the introduction to the story."""
+troglodyte.print_slow("Welcome You are playing --Troglodyte Sim-- the video game.\n\n"
+                      ""
+                      "Since ancient times man has always taken an interest in caves.\n"
+                      "Be it for shelter, paintings, tragedies or mysteries caves have touched every part of History.\n"
+                      "The way I look at it, this game isn't a game, but a love letter to all things cave.\n"
+                      ""
+                      "The player will be given 5 options when they first begin. These will include\n"
+                      "Search room\n"
+                      "talk to characters\n"
+                      "check backpack\n"
+                      "pick up items \n"
+                      "and move character\n"
+                      "For move character you must enter North East South or West or the first letter if\n"
+                      "you wish to be lazy... Totally get it if you want to though.\n\n"
+                      "The aim of this game is to get outside, however this requires the player to collect a few items\n"
+                      "You must first get a Fishing Rod, then a Fish and then The One Ring to get past the dragon.\n"
+                      "Good luck to you player and may your journey be safe and plentiful\n")
+time.sleep(10)
+
 troglodyte.print_slow(troglodyte.starting_message)
 """This sets up the character location and the starting message."""
 troglodyte_location = starting_room
@@ -99,6 +118,8 @@ while True:
     """The player is given 5 options for everywhere they go. 
     These options are: 
     search_room, ask_character_question, show_items_in_bag, collect_items and move_character"""
+
+    print()
     if character_options == 1:
         troglodyte_location.search_room()
 

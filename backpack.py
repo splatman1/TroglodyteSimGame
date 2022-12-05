@@ -46,7 +46,7 @@ class BackPack:
     def get_key(self, item):
         return item.item
     def sort(self):
-        """Lists have trouble adding instances to them so this assigns a key so it won't break"""
+        """Lists have trouble adding instances to them so this assigns a key ,so it won't break"""
         self._backpack.sort(key=self.get_key)
 
     def count(self):
