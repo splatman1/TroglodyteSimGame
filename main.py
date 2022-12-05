@@ -105,7 +105,7 @@ troglodyte.print_slow("Welcome You are playing --Troglodyte Sim-- the video game
                       "The aim of this game is to get outside, however this requires the player to collect a few items\n"
                       "You must first get a Fishing Rod, then a Fish and then The One Ring to get past the dragon.\n"
                       "Good luck to you player and may your journey be safe and plentiful\n")
-time.sleep(10)
+time.sleep(3)
 
 troglodyte.print_slow(troglodyte.starting_message)
 """This sets up the character location and the starting message."""
@@ -119,7 +119,6 @@ while True:
     These options are: 
     search_room, ask_character_question, show_items_in_bag, collect_items and move_character"""
 
-    print()
     if character_options == 1:
         troglodyte_location.search_room()
 
@@ -134,7 +133,12 @@ while True:
         items = troglodyte_location.pick_up_item(troglodyte_location.troglodyte_character.backpack)
         troglodyte_location.troglodyte_character.backpack.add(troglodyte_location, items)
     if character_options == 5:
-        troglodyte_location.move_character(troglodyte_location.troglodyte_character.backpack)
+        troglodyte_location.move_character(troglodyte_location.troglodyte_characte5r.backpack)
         troglodyte_location = troglodyte_location.get_current_location()
+        """This is a map, it prints the locations the player has been to."""
 
+    print(f"[{lake_room.explored}], {dragons_room.explored}, [{frodo_room.explored}]\n"
+          f"[{floyds_room.explored}], [{wilsons_room.explored}], [{gollums_room.explored}]\n"
+          f"[{skeletons_room.explored}], [{starting_room.explored}], [{weapons_room.explored}]\n"
+          f"This is your map")
 

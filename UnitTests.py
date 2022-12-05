@@ -16,6 +16,8 @@ RandomRoom.item1 = RandomItem
 
 
 class TestBackPack(unittest.TestCase):
+    """I can only test my backpack because my functions all rely on inputs or other
+    functions to work. I completed functional testing however."""
     def test_add_backpack(self):
         List = []
         List.append(RandomItem)
@@ -26,6 +28,7 @@ class TestBackPack(unittest.TestCase):
         List.append(RandomItem)
         (BackPack.add(RandomRoom, List))
         self.assertEqual(BackPack.in_backpack(WrongItem.item), None)
+
 
 
 

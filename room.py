@@ -1,7 +1,7 @@
 class Room:
     """The Class handles any character movements as well as any tracking required."""
     def __init__(self, room_name, north=None, east=None, south=None, west=None, characters = None,
-                 item1=None, item2=None, item3=None, explored=False, troglodyte_character=None):
+                 item1=None, item2=None, item3=None, explored='', troglodyte_character=None):
         self.explored = explored
         self.room_name = room_name
         self.item1 = item1
@@ -86,6 +86,7 @@ class Room:
                 self.west.troglodyte_character = self.troglodyte_character
                 self.troglodyte_location = self.west
             print(f"You find yourself in {self.troglodyte_location.room_name}")
+            self.explored=self.room_name
 
     def remove_items(self):
         """This function removes all items within the room and is only called
