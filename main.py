@@ -123,9 +123,12 @@ while True:
         troglodyte_location.search_room()
 
     if character_options == 2:
-        troglodyte_location.troglodyte_character.ask_character_question(troglodyte_location.characters.name)
-        troglodyte_location.characters.talk_to_character(troglodyte_location.characters,
-                                                         troglodyte_location.troglodyte_character.backpack)
+        if troglodyte_location.characters != None:
+            troglodyte_location.troglodyte_character.ask_character_question(troglodyte_location.characters.name)
+            troglodyte_location.characters.talk_to_character(troglodyte_location.characters,
+                                                             troglodyte_location.troglodyte_character.backpack)
+        if troglodyte_location.characters == None:
+            print("No characters are in your area!")
 
     if character_options == 3:
         troglodyte_location.troglodyte_character.backpack.list()
@@ -133,11 +136,11 @@ while True:
         items = troglodyte_location.pick_up_item(troglodyte_location.troglodyte_character.backpack)
         troglodyte_location.troglodyte_character.backpack.add(troglodyte_location, items)
     if character_options == 5:
-        troglodyte_location.move_character(troglodyte_location.troglodyte_characte5r.backpack)
+        troglodyte_location.move_character(troglodyte_location.troglodyte_character.backpack)
         troglodyte_location = troglodyte_location.get_current_location()
         """This is a map, it prints the locations the player has been to."""
 
-    print(f"[{lake_room.explored}], {dragons_room.explored}, [{frodo_room.explored}]\n"
+    print(f"[{lake_room.explored}], [{dragons_room.explored}], [{frodo_room.explored}]\n"
           f"[{floyds_room.explored}], [{wilsons_room.explored}], [{gollums_room.explored}]\n"
           f"[{skeletons_room.explored}], [{starting_room.explored}], [{weapons_room.explored}]\n"
           f"This is your map")

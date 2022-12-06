@@ -46,7 +46,7 @@ class Room:
         death screen. If the player has the_one_ring, then they will be able to get past the dragon and win.
 
         """
-        self.troglodyte_location = Room
+        self.troglodyte_location = None
         north = ''
         east = ''
         south = ''
@@ -87,7 +87,6 @@ class Room:
                 self.troglodyte_location = self.west
             print(f"You find yourself in {self.troglodyte_location.room_name}")
             self.explored=self.room_name
-
     def remove_items(self):
         """This function removes all items within the room and is only called
         by the backpack class."""
@@ -96,7 +95,10 @@ class Room:
         self.item3 = None
 
     def get_current_location(self):
-        return self.troglodyte_location
+        if self.troglodyte_location is not None:
+            return self.troglodyte_location
+        if self.troglodyte_location is None:
+            return self
 
     def search_room(self):
         """The search_room function looks for any items that may be in the room aswell as any characters that
